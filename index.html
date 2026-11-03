@@ -805,6 +805,14 @@
     'width' : 300,
     'params' : {}
   };
+</script><script>
+  atOptions = {
+    'key' : 'cfd6ad456685c47c27fa37a218097093',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
 </script>
 <script src="https://biomanos.org/22/cfd6ad456685c47c27fa37a218097093"></script></span>
         </div>
@@ -1142,7 +1150,29 @@
         // Initialize on load
         window.addEventListener('DOMContentLoaded', () => {
             renderOffers(offers);
-        });
+        });// Live Claim Counter Dynamic Updater
+function updateClaimCounts() {
+    const claimElements = document.querySelectorAll('.offer-meta span');
+    
+    claimElements.forEach(el => {
+        // বর্তমান সংখ্যাটি খুঁজে বের করা
+        let text = el.innerText;
+        let match = text.match(/(\d+)/);
+        
+        if (match) {
+            let currentCount = parseInt(match[1]);
+            // রেন্ডমলি ১ থেকে ৩ জন বাড়িয়ে দেওয়া
+            let randomAdd = Math.floor(Math.random() * 3) + 1;
+            let newCount = currentCount + randomAdd;
+            
+            // নতুন সংখ্যা দিয়ে আপডেট করা
+            el.innerHTML = `<i class="fa-solid fa-bolt"></i> ${newCount} Claimed Today`;
+        }
+    });
+}
+
+// প্রতি ১২ সেকেন্ড পর পর সংখ্যা আপডেট হবে (১২০০০ মিলি সেকেন্ড = ১২ সেকেন্ড)
+setInterval(updateClaimCounts, 12000);
     </script>
 </body>
 </html>
