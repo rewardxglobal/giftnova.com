@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GiftNova — Premium Rewards & Gift Card Discovery Platform</title>
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Pro Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8FAFC;
+            --navy-deep: #0B132B;
+            --navy-light: #1C2541;
+            --purple-soft: #6366F1;
+            --purple-hover: #4F46E5;
+            --purple-light: #EEF2FF;
+            --gold-accent: #F59E0B;
+            --emerald-green: #10B981;
+            --emerald-light: #D1FAE5;
+            --text-main: #0F172A;
+            --text-muted: #64748B;
+            --border-color: #E2E8F0;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+            --shadow-lg: 0 20px 30px -10px rgba(99, 102, 241, 0.15);
+            --radius-sm: 10px;
+            --radius-md: 18px;
+            --radius-lg: 28px;
+            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-primary);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- STICKY NAVIGATION --- */
+        .navbar {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 84px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 26px;
+            color: var(--navy-deep);
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #6366F1 0%, #4338CA 100%);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 22px;
+            box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--purple-soft);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-purple {
+            background: var(--purple-soft);
+            color: #FFFFFF;
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);
+        }
+
+        .btn-purple:hover {
+            background: var(--purple-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(99, 102, 241, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--navy-deep);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--navy-deep);
+            background: var(--bg-secondary);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 90px 0 120px;
+            background: radial-gradient(100% 100% at 50% 0%, rgba(99, 102, 241, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--purple-light);
+            color: var(--purple-soft);
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .hero-content h1 {
+            font-size: 56px;
+            line-height: 1.08;
+            font-weight: 900;
+            color: var(--navy-deep);
+            margin-bottom: 24px;
+        }
+
+        .hero-content p {
+            font-size: 19px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat-item h4 {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--navy-deep);
+        }
+
+        .stat-item p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+        }
+
+        .hero-main-img {
+            width: 100%;
+            height: 540px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Floating Gift Cards Effect */
+        .floating-card {
+            position: absolute;
+            background: #FFFFFF;
+            padding: 16px 24px;
+            border-radius: var(--radius-md);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            animation: float 4s ease-in-out infinite;
+            border: 1px solid var(--border-color);
+        }
+
+        .floating-card .card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            background: var(--purple-light);
+            color: var(--purple-soft);
+        }
+
+        .floating-card .card-info h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--navy-deep);
+        }
+
+        .floating-card .card-info span {
+            font-size: 13px;
+            color: var(--emerald-green);
+            font-weight: 700;
+        }
+
+        .card-1 { top: 12%; left: -30px; animation-delay: 0s; }
+        .card-2 { bottom: 12%; right: -20px; animation-delay: 2s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        /* --- POPULAR BRANDS SECTION --- */
+        .brands-section {
+            padding: 80px 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            max-width: 650px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--navy-deep);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 17px;
+            color: var(--text-muted);
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+        }
+
+        .brand-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 28px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .brand-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--purple-soft);
+            box-shadow: var(--shadow-md);
+        }
+
+        .brand-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--purple-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--purple-soft);
+        }
+
+        .brand-card h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--navy-deep);
+        }
+
+        /* --- FEATURED OFFERS SECTION --- */
+        .offers-section {
+            padding: 100px 0;
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 24px;
+            border-radius: 30px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--purple-soft);
+            color: #FFFFFF;
+            border-color: var(--purple-soft);
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.25);
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .offer-card {
+            background: #FFFFFF;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--purple-soft);
+        }
+
+        .offer-image-box {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .offer-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .offer-card:hover .offer-image {
+            transform: scale(1.06);
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: rgba(11, 19, 43, 0.88);
+            backdrop-filter: blur(6px);
+            color: #FFFFFF;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .offer-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .offer-content h3 {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--navy-deep);
+            margin-bottom: 8px;
+        }
+
+        .offer-content p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.55;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .offer-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--emerald-green);
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* --- HOW IT WORKS SECTION --- */
+        .steps-section {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .step-card {
+            background: #FFFFFF;
+            padding: 44px 32px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .step-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .step-number {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--purple-soft);
+            background: var(--purple-light);
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        .step-card h3 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--navy-deep);
+            margin-bottom: 12px;
+        }
+
+        .step-card p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* --- PROMOTIONAL BANNER --- */
+        .promo-banner {
+            padding: 90px 0;
+            background: linear-gradient(135deg, #0B132B 0%, #1C2541 100%);
+            color: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-banner-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .promo-banner-content h2 {
+            font-size: 44px;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .promo-banner-content p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 36px;
+            line-height: 1.6;
+        }
+
+        .promo-banner-image img {
+            width: 100%;
+            max-width: 440px;
+            height: 340px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        /* --- FAQ SECTION --- */
+        .faq-section {
+            padding: 100px 0;
+            background: #FFFFFF;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 22px 28px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy-deep);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-question i {
+            color: var(--purple-soft);
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 28px;
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 28px 24px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* --- ADVERTISEMENT SLOTS --- */
+        .ad-container {
+            width: 100%;
+            background: var(--bg-secondary);
+            border: 2px dashed var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+            margin: 40px 0;
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            background: var(--navy-deep);
+            color: #FFFFFF;
+            padding: 90px 0 34px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand p {
+            font-size: 15px;
+            color: #94A3B8;
+            line-height: 1.6;
+            margin-top: 18px;
+            max-width: 340px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 22px;
+            color: #FFFFFF;
+        }
+
+        .footer-col ul {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .footer-col ul a {
+            font-size: 14px;
+            color: #94A3B8;
+            transition: var(--transition);
+        }
+
+        .footer-col ul a:hover {
+            color: #FFFFFF;
+        }
+
+        .footer-bottom {
+            padding-top: 34px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #94A3B8;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .hero-grid, .promo-banner-grid, .brands-grid, .steps-grid, .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .brands-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-container .btn { display: none; }
+            .hero-grid, .promo-banner-grid, .brands-grid, .steps-grid, .footer-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 38px; }
+            .promo-banner-content h2 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- STICKY NAVIGATION -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-gift"></i></div>
+                GiftNova
+            </a>
+            <div class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#explore">Explore Rewards</a>
+                <a href="#brands">Gift Cards</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <a href="#explore" class="btn btn-purple">Explore Offers</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-tag"><i class="fa-solid fa-bolt"></i> USA Premier Digital Rewards Hub</div>
+                <h1>Your Favorite Gift Cards. Instant Digital Rewards.</h1>
+                <p>Discover real promotional opportunities, claim high-value gift cards, and access popular rewards directly from top national brands.</p>
+                <div class="hero-buttons">
+                    <a href="#explore" class="btn btn-purple">Claim Available Rewards</a>
+                    <a href="#how-it-works" class="btn btn-outline">How It Works</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h4>$2.5M+</h4>
+                        <p>Rewards Claimed</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>100% Free</h4>
+                        <p>No Purchase Needed</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Instant</h4>
+                        <p>Digital Code Access</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Happy American Adult" class="hero-main-img">
+                
+                <!-- Floating Cards -->
+                <div class="floating-card card-1">
+                    <div class="card-icon"><i class="fa-brands fa-amazon"></i></div>
+                    <div class="card-info">
+                        <h4>$750 Amazon Card</h4>
+                        <span>Instant Unlock</span>
+                    </div>
+                </div>
+                <div class="floating-card card-2">
+                    <div class="card-icon"><i class="fa-brands fa-google-play"></i></div>
+                    <div class="card-info">
+                        <h4>$500 Google Play</h4>
+                        <span>Verified Active</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADSTERRA AD PLACEMENT -->
+    <div class="container">
+        <div class="ad-container">
+            <span><script>
+  atOptions = {
+    'key' : 'cfd6ad456685c47c27fa37a218097093',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script src="https://biomanos.org/22/cfd6ad456685c47c27fa37a218097093"></script><script>
+  atOptions = {
+    'key' : 'cfd6ad456685c47c27fa37a218097093',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script src="https://biomanos.org/22/cfd6ad456685c47c27fa37a218097093"></script><script>
+  atOptions = {
+    'key' : 'cfd6ad456685c47c27fa37a218097093',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script src="https://biomanos.org/22/cfd6ad456685c47c27fa37a218097093"></script></span>
+        </div>
+    </div>
+<script>
+  atOptions = {
+    'key' : '92575460ffdefe02f4942f198587b5c3',
+    'format' : 'iframe',
+    'height' : 60,
+    'width' : 468,
+    'params' : {}
+  };
+</script>
+<script src="https://biomanos.org/22/92575460ffdefe02f4942f198587b5c3"></script>
+    <!-- POPULAR BRANDS SECTION -->
+    <section id="brands" class="brands-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Top Digital Gift Card Brands</h2>
+                <p>Select from the most popular retail and digital rewards available across the USA.</p>
+            </div>
+            <div class="brands-grid">
+                <div class="brand-card">
+                    <div class="brand-icon"><i class="fa-brands fa-amazon"></i></div>
+                    <h4>Amazon</h4>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-icon"><i class="fa-brands fa-apple"></i></div>
+                    <h4>Apple</h4>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-icon"><i class="fa-brands fa-google-play"></i></div>
+                    <h4>Google Play</h4>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-icon"><i class="fa-solid fa-store"></i></div>
+                    <h4>Walmart</h4>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <h4>Target</h4>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-icon"><i class="fa-brands fa-cc-visa"></i></div>
+                    <h4>Visa Cash</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED REWARD OPPORTUNITIES (DYNAMIC OFFERS) -->
+    <section id="explore" class="offers-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Digital Rewards</h2>
+                <p>Choose your reward, complete quick simple steps, and unlock your code.</p>
+            </div>
+
+            <!-- CATEGORY FILTERS -->
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="filterOffers('all')">All Rewards</button>
+                <button class="filter-btn" onclick="filterOffers('Shopping')">Shopping</button>
+                <button class="filter-btn" onclick="filterOffers('Gaming')">Gaming & Apps</button>
+                <button class="filter-btn" onclick="filterOffers('Cash')">Cash & Prepaid</button>
+            </div>
+
+            <!-- OFFERS GRID -->
+            <div class="offers-grid" id="offersGrid">
+                <!-- Javascript Dynamic Population -->
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="steps-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Claiming Your Card Is Fast & Easy</h2>
+                <p>Follow these 3 straightforward steps to receive your digital code instantly.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <span class="step-number">STEP 01</span>
+                    <h3>Select Reward</h3>
+                    <p>Browse our catalog and choose the gift card value you want to unlock.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">STEP 02</span>
+                    <h3>Quick Verification</h3>
+                    <p>Complete a quick 2-minute promotional interaction or survey instruction.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-number">STEP 03</span>
+                    <h3>Unlock Code</h3>
+                    <p>Instantly receive your digital gift card code directly on your screen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMOTIONAL BANNER -->
+    <section class="promo-banner">
+        <div class="container promo-banner-grid">
+            <div class="promo-banner-content">
+                <h2>Ready to Spend Your First Free Gift Card?</h2>
+                <p>Don't miss out on today's high-value digital card opportunities. Start exploring now.</p>
+                <a href="#explore" class="btn btn-purple" style="background: #FFFFFF; color: var(--navy-deep);">Claim My Card Now</a>
+            </div>
+            <div class="promo-banner-image">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" alt="Smiling Customer">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Got questions? We've got answers.</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What is GiftNova?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            GiftNova is America's leading digital reward platform where users can discover and unlock gift card codes from major brands by completing quick promotional offers.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Is it completely free?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Yes! Every promotional reward available on GiftNova is 100% free to access without requiring any credit card details or payment.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How fast do I get my code?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Codes are generated dynamically immediately after successful completion of the offer verification steps.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo" style="color: #FFFFFF;">
+                        <div class="logo-icon"><i class="fa-solid fa-gift"></i></div>
+                        GiftNova
+                    </div>
+                    <p>Discover Rewards. Enjoy More Possibilities. America's premier digital gift card hub.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#explore">Explore Offers</a></li>
+                        <li><a href="#brands">Gift Cards</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#explore">Shopping Cards</a></li>
+                        <li><a href="#explore">Gaming Rewards</a></li>
+                        <li><a href="#explore">Prepaid Cash</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support & Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 GiftNova. All Rights Reserved.</span>
+                <span>Designed for Top USA Engagement</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT: EXTENDED OFFERS & DYNAMIC FILTERING -->
+    <script>
+        // EXTENDED LIST OF PREMIUM OFFERS CONNECTED TO YOUR ADBLUE MEDIA LINKS
+        const offers = [
+            {
+                id: 1,
+                title: "$750 Amazon Shopping Card",
+                description: "Unlock instant shopping credits for millions of items on Amazon.",
+                image: "https://images.unsplash.com/photo-1526738549149-8e07eca6c147?auto=format&fit=crop&w=600&q=80",
+                category: "Shopping",
+                badge: "Hot Offer",
+                claimed: "48 Claimed Today",
+                url: "https://auctionr.org/4/d18ac62d8027b829ba2a007f474886a5"
+            },
+            {
+                id: 2,
+                title: "$500 Google Play Store Code",
+                description: "Get digital balance for your favorite Android apps, games, and movies.",
+                image: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80",
+                category: "Gaming",
+                badge: "Popular",
+                claimed: "35 Claimed Today",
+                url: "https://auctionr.org/4/9596e48d38872ccd91c9000ab1c181fc"
+            },
+            {
+                id: 3,
+                title: "$500 Apple Store & App Card",
+                description: "Redeem for Apple hardware, subscriptions, Apple Music & games.",
+                image: "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80",
+                category: "Shopping",
+                badge: "Trending",
+                claimed: "29 Claimed Today",
+                url: "https://auctionr.org/4/d18ac62d8027b829ba2a007f474886a5"
+            },
+            {
+                id: 4,
+                title: "$1,000 Walmart Gift Voucher",
+                description: "Get household items, groceries, and electronics at Walmart.",
+                image: "https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?auto=format&fit=crop&w=600&q=80",
+                category: "Shopping",
+                badge: "High Value",
+                claimed: "62 Claimed Today",
+                url: "https://auctionr.org/4/9596e48d38872ccd91c9000ab1c181fc"
+            },
+            {
+                id: 5,
+                title: "$500 Target Digital Voucher",
+                description: "Enjoy trendy clothing, home decor, and daily household supplies.",
+                image: "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=600&q=80",
+                category: "Shopping",
+                badge: "Featured",
+                claimed: "18 Claimed Today",
+                url: "https://auctionr.org/4/d18ac62d8027b829ba2a007f474886a5"
+            },
+            {
+                id: 6,
+                title: "$250 Roblox Robux Code",
+                description: "Upgrade your avatar and unlock special in-game items instantly.",
+                image: "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=600&q=80",
+                category: "Gaming",
+                badge: "Gamer Favorite",
+                claimed: "84 Claimed Today",
+                url: "https://auctionr.org/4/9596e48d38872ccd91c9000ab1c181fc"
+            },
+            {
+                id: 7,
+                title: "$1,000 Visa Prepaid Cash Card",
+                description: "Spend anywhere Visa credit cards are accepted online worldwide.",
+                image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=600&q=80",
+                category: "Cash",
+                badge: "Top Cash",
+                claimed: "91 Claimed Today",
+                url: "https://auctionr.org/4/d18ac62d8027b829ba2a007f474886a5"
+            },
+            {
+                id: 8,
+                title: "$500 PayPal Digital Cash",
+                description: "Direct digital payout sent straight to your verified PayPal balance.",
+                image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80",
+                category: "Cash",
+                badge: "Instant Cash",
+                claimed: "56 Claimed Today",
+                url: "https://auctionr.org/4/9596e48d38872ccd91c9000ab1c181fc"
+            }
+        ];
+
+        // Render Offers Function
+        function renderOffers(items) {
+            const grid = document.getElementById('offersGrid');
+            grid.innerHTML = '';
+
+            items.forEach(offer => {
+                const card = document.createElement('div');
+                card.className = 'offer-card';
+                card.innerHTML = `
+                    <div class="offer-image-box">
+                        <img src="${offer.image}" alt="${offer.title}" class="offer-image">
+                        <span class="offer-badge">${offer.badge}</span>
+                    </div>
+                    <div class="offer-content">
+                        <h3>${offer.title}</h3>
+                        <p>${offer.description}</p>
+                        <div class="offer-meta">
+                            <span><i class="fa-solid fa-bolt"></i> ${offer.claimed}</span>
+                        </div>
+                        <a href="${offer.url}" target="_blank" rel="noopener noreferrer" class="btn btn-purple" style="width: 100%;">Claim Reward Now</a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Dynamic Filtering
+        function filterOffers(cat) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            if (cat === 'all') {
+                renderOffers(offers);
+            } else {
+                const filtered = offers.filter(o => o.category === cat);
+                renderOffers(filtered);
+            }
+        }
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                const active = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('active'));
+                if (!active) item.classList.add('active');
+            });
+        });
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            renderOffers(offers);
+        });
+    </script>
+</body>
+</html>
